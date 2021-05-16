@@ -34,7 +34,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
-    @GetMapping("/{userId}/order")
+    @GetMapping("/{userId}/orders")
     public ResponseEntity<Map<String, Object>> getUserOrder(@PathVariable("userId") String userId) {
         var responseOrderList = orderService.findByUserId(userId);
 
