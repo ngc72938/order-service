@@ -1,5 +1,6 @@
 package com.shop.orderservice.service;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.shop.orderservice.dto.CreateOrderDto;
 import com.shop.orderservice.dto.ResponseOrderDto;
 import com.shop.orderservice.entity.Order;
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class OrderServiceImpl implements OrderService {
     private final ModelMapper modelMapper;
     private final OrderRepository orderRepository;
+    private final JPAQueryFactory jpaQueryFactory;
 
     @Override
     public ResponseOrderDto save(CreateOrderDto createOrderDto) {
