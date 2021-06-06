@@ -54,4 +54,17 @@ public class OrderServiceImpl implements OrderService {
 
         return responseOrderList;
     }
+
+    @Override
+    public ResponseOrderDto cancelOrder(String orderKey) {
+        var order = orderRepository.findByOrderKey(orderKey).orElseGet(Order::new);
+        if(order.getId() == 0)
+            throw new NoSuchElementException("일치하는 주문이 존재 하지 않습니다.");
+
+        order.setCanceled(true);
+
+        var savedOrder = orderRepository.save(order);
+
+        return modelMapper.map(savedOrder, ResponseOrderDto.class);
+    }
 }

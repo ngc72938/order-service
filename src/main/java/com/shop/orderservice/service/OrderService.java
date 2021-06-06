@@ -9,4 +9,6 @@ public interface OrderService {
     ResponseOrderDto save(CreateOrderDto createOrderDto);
     ResponseOrderDto findByOrderKey(String orderKey);
     List<ResponseOrderDto> findByUserId(String userId);
+    ResponseOrderDto cancelOrder(String orderKey);
+
 }
