@@ -52,5 +52,13 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
 
+    @GetMapping("/order/{orderId}/cancel")
+    public ResponseEntity<Map<String, Object>> cancelOrder(@PathVariable("orderId") String orderId) {
+        //TODO 주문 취솔 로직작성
+        var responseDto = new ResponseDto("","").getResponseEntity();
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+    }
+
 
 }
