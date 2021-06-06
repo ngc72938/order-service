@@ -32,4 +32,6 @@ public class Order extends Time {
 
     @Column(nullable = false, unique = true)
     private String orderKey;
+
+    private boolean isCanceled;
 }
