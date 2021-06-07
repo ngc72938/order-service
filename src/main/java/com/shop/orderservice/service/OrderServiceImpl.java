@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public ResponseOrderDto findByOrderKey(String orderKey) {
         var order = orderRepository.findByOrderKey(orderKey).orElseGet(Order::new);
-        if(order.getId() == 0)
+        if (order.getId() == 0)
             throw new NoSuchElementException("일치하는 주문이 존재 하지 않습니다.");
 
         return modelMapper.map(order, ResponseOrderDto.class);
@@ -47,9 +47,9 @@ public class OrderServiceImpl implements OrderService {
         var responseOrderList = new ArrayList<ResponseOrderDto>();
 
         orderList.forEach(order ->
-            responseOrderList.add(
-                modelMapper.map(order, ResponseOrderDto.class)
-            )
+                responseOrderList.add(
+                        modelMapper.map(order, ResponseOrderDto.class)
+                )
         );
 
         return responseOrderList;
@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public ResponseOrderDto cancelOrder(String orderKey) {
         var order = orderRepository.findByOrderKey(orderKey).orElseGet(Order::new);
-        if(order.getId() == 0)
+        if (order.getId() == 0)
             throw new NoSuchElementException("일치하는 주문이 존재 하지 않습니다.");
 
         order.setCanceled(true);

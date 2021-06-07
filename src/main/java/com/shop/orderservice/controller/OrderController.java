@@ -22,7 +22,7 @@ public class OrderController {
 
     @GetMapping("/health_check")
     public String status() {
-        return "It's Working in Order Service on Port "+ environment.getProperty("local.server.port");
+        return "It's Working in Order Service on Port " + environment.getProperty("local.server.port");
     }
 
     @PostMapping("/order")
@@ -56,7 +56,7 @@ public class OrderController {
     public ResponseEntity<Map<String, Object>> cancelOrder(@PathVariable("orderId") String orderId) {
         var canceledOrder = orderService.cancelOrder(orderId);
 
-        var responseDto = new ResponseDto("주문 취소 성공",canceledOrder).getResponseEntity();
+        var responseDto = new ResponseDto("주문 취소 성공", canceledOrder).getResponseEntity();
 
         return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
