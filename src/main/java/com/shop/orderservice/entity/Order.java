@@ -1,5 +1,6 @@
 package com.shop.orderservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "orders")
 @DynamicUpdate
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order extends Time {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
